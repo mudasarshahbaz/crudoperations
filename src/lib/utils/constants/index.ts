@@ -15,6 +15,7 @@ const route = {
     REPOSITORYLIST: "RepositoryList",
     USERLIST: "UserList",
     ADDUSER: "AddUser",
+    REPOSITORYDETAIL: "RepositoryDetail"
 }
 
 
