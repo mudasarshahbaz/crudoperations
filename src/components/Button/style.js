@@ -5,8 +5,6 @@ export default StyleSheet.create({
     btnPrimary: {
         height: 54,
         width: '100%',
-        // elevation: 2,
-        // borderRadius: 25,
         marginVertical: "5%",
         backgroundColor: THEME.BUTTON_COLOR
     },
