@@ -3,19 +3,19 @@ import THEME from '../../assets/styles/theme.style';
 const screenWidth = Dimensions.get('window').width;
 export default StyleSheet.create({
     containerStyle: {
-        height: 65,
-        paddingVertical: '2%',
-        backgroundColor: '#fff',
-        paddingHorizontal: 0,
-        borderRadius: 15,
-        marginTop: 15
+        height: 50,
     },
     inputContainerStyle: {
-        height: 40,
-        borderBottomWidth: 0.5,
-        borderColor: 'lightgray',
-        borderWidth: 0.5,
-        borderRadius: 25,
+        paddingLeft: 8,
+        borderColor: 'rgba(110, 120, 170, 1)',
+        height: 45,
+        marginVertical: 3
+    },
+    inputStyle: {
+        flex: 1,
+        marginLeft: 10,
+        color: THEME.PRIMARY_TEXT_COLOR,
+        fontSize: 16
     },
     labelStyle: {
         fontSize: 14,
@@ -23,11 +23,6 @@ export default StyleSheet.create({
         fontWeight: "normal",
         color: THEME.PRIMARY_TEXT_COLOR,
         height: 25,
-    },
-    inputStyle: {
-        flex: 1,
-        fontSize: 14,
-        fontWeight:"bold"
     },
 }
 );
