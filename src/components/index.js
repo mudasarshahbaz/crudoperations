@@ -18,3 +18,6 @@ export const SearchBar = _SearchBar;
 // Loading Component
 import _Loader from './Loader';
 export const Loader = _Loader;
+// HeaderLeft Component
+import _HeaderLeft from './HeaderLeft';
+export const HeaderLeft = _HeaderLeft;

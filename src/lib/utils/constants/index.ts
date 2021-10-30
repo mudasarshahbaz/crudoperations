@@ -6,6 +6,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 const screen = {
     SCREEN_TITLE_ALIGN_CENTER: "center",
     REPOSITORYLIST: "Repository List",
+    REPOSITORYDETAIL:"Repository Detail",
     USERLIST: "User List",
     ADDUSER: "Add User",
 };
