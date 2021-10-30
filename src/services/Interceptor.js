@@ -1,8 +1,8 @@
 import axios from 'axios';
-import apiConfig from './Config';
+import {BASE_URL} from '../enviroments';
 
 let axiosInstance = axios.create({
-    baseURL: `${apiConfig.BASE_URL}`,
+    baseURL: `${BASE_URL}`,
    
 });
 axiosInstance.interceptors.request.use(function (config) {

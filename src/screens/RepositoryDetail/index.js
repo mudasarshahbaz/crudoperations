@@ -1,16 +1,14 @@
-import React from "react"
-import { View, Text } from 'react-native'
-import { Container } from '../../components'
+import React from 'react'
 
+import Webview from 'react-native-webview';
 
-export default function CreatePlaceholder() {
+const RepositoryDetail = (props) => {
+    
+    const { urlDetail } = props.route.params
+    
     return (
-        <Container>
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <Text style={[{ marginTop: '10%', textAlign: 'center' },]}>
-                    Screen is Underdevelopment
-                </Text>
-            </View>
-        </Container>
+        <Webview source={{uri: urlDetail}} />
     )
-};
+}
+
+export default RepositoryDetail;

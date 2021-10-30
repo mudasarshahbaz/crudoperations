@@ -11,7 +11,7 @@ const Input = (props) => {
             labelStyle={inputStyles.labelStyle}
             containerStyle={inputStyles.containerStyle}
             placeholderTextColor={THEME.PRIMARY_TEXT_COLOR}
-            inputContainerStyle={inputStyles.inputContainerStyle}
+            inputContainerStyle={{ ...inputStyles.inputContainerStyle, width: props.width ? props.width : null }}
             inputStyle={inputStyles.inputStyle}
         />
     );
