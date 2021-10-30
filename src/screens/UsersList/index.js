@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { View, Text, FlatList, Alert } from 'react-native'
+import { View, Text, FlatList, Alert, StyleSheet } from 'react-native'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import themeStyle from "../../assets/styles/theme.style";
@@ -54,7 +54,7 @@ function UsersList(props) {
         <Container>
             <View style={{ flex: 1, }}>
                 {/* Button to navigate to add user detail screen */}
-                <View style={{ marginVertical: "10%", alignSelf: "center" }}>
+                <View style={styles.buttonContainer}>
                     <Button title="Add User" onPress={() => props.navigation.navigate(route.ADDUSER)} />
                 </View>
                  {/* List of users */}
@@ -71,6 +71,9 @@ function UsersList(props) {
     )
 };
 
+const styles = StyleSheet.create({
+    buttonContainer: { marginVertical: "10%", alignSelf: "center" },
+})
 const mapStateToProps = (state) => {
     return {
         users: state.stateReducer.users

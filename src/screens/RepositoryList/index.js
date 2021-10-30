@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, Image } from 'react-native'
+import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import themeStyle from "../../assets/styles/theme.style";
 import { Container, Icon, Input } from '../../components'
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../../lib/utils/constants";
@@ -48,11 +48,11 @@ export default class RepositoryList extends Component {
 
     _renderRepository = ({ item, index }) => {
         return (
-            <View style={{ height: 70, marginHorizontal: "5%" }}>
+            <View style={styles.itemContainer}>
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate(route.REPOSITORYDETAIL, { urlDetail: item.html_url })}
-                    style={{ flexDirection: "row", alignItems: "center" }} >
-                    <View style={{ flex: 0.3, flexDirection: 'row', alignItems: "center" }}>
+                    style={styles.itemInnerContainer} >
+                    <View style={styles.imageContainer}>
                         <Text style={{ width: 40 }}>
                             {index + 1}
                         </Text>
@@ -62,7 +62,7 @@ export default class RepositoryList extends Component {
                         <Text> {item.name} </Text>
                         <Text> {item?.owner?.login} </Text>
                     </View>
-                    <View style={{ flex: 0.1, alignItems: "flex-end", justifyContent: "center" }}>
+                    <View style={styles.iconContainer}>
                         <Icon.FontAwesome name="angle-right" color="#ddd" size={30} />
                     </View>
                 </TouchableOpacity>
@@ -90,11 +90,11 @@ export default class RepositoryList extends Component {
     render() {
         return (
             <Container>
-                <View style={{ flex: 1, marginTop: "10%" }}>
-                        { /**
+                <View style={styles.container}>
+                    { /**
                          * Search Bar for seacrh repositories by click on search icon 
                          */}
-                    <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                    <View style={styles.searchContainer}>
                         <View>
                             <Input width={SCREEN_WIDTH * 0.8} value={this.state.searchText} placeholder="Seacrh repository" onChangeText={(text) => this.setState({ searchText: text })} />
                         </View>
@@ -107,7 +107,7 @@ export default class RepositoryList extends Component {
                          * Loading and List of repositories
                          */}
                     {this.state.loading ?
-                        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                        <View style={styles.loadingContainer}>
                             <ActivityIndicator color={themeStyle.BUTTON_COLOR} size="small" />
                         </View>
                         :
@@ -125,3 +125,13 @@ export default class RepositoryList extends Component {
     }
 
 };
+
+const styles = StyleSheet.create({
+    container: { flex: 1, marginTop: "10%" },
+    searchContainer: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: "5%" },
+    loadingContainer: { flex: 1, justifyContent: "center", alignItems: "center" },
+    itemContainer: { height: 70, marginHorizontal: "5%" },
+    itemInnerContainer: { flexDirection: "row", alignItems: "center" },
+    iconContainer: { flex: 0.1, alignItems: "flex-end", justifyContent: "center" },
+    imageContainer: { flex: 0.3, flexDirection: 'row', alignItems: "center" }
+})

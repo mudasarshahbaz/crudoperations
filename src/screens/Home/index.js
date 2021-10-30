@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Container, Button } from '../../components'
 import { route } from '../../lib/utils/constants';
 
@@ -13,7 +13,7 @@ export default class Home extends Component {
     render() {
         return (
             <Container>
-                <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                <View style={styles.container}>
                     {/* Buttons for Performing navigation to the specific scenerio for users and repositories */}
                     <View>
                         <Button title={'Users'} onPress={() => this.props.navigation.navigate(route.USERLIST)} />
@@ -26,3 +26,10 @@ export default class Home extends Component {
         )
     }
 };
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    }
+})

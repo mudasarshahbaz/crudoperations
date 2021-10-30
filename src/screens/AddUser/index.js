@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Button, Container, Input } from '../../components'
 import commonStyle from "../../assets/styles/common.style"
 import { bindActionCreators } from "redux"
@@ -7,9 +7,9 @@ import { stateActions } from "../../redux/actions/state"
 import { connect } from "react-redux"
 
 function AddUser(props) {
-     /**
-      * state value which are used in the component
-      */
+    /**
+     * state value which are used in the component
+     */
     const [firstName, setFirstName] = useState(props?.route?.params?.data ? props?.route?.params?.data.first_name : "")
     const [lastName, setLastName] = useState(props?.route?.params?.data ? props?.route?.params?.data.last_name : "")
     const [submit, setSubmit] = useState(false)
@@ -67,7 +67,7 @@ function AddUser(props) {
 
     return (
         <Container>
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+            <View style={styles.container}>
                 {/* Input for user details */}
                 <Input placeholder="Enter first name" value={firstName} onChangeText={(text) => changeText("firstName", text)} />
                 {/* Input value error handling */}
@@ -81,13 +81,22 @@ function AddUser(props) {
                     submit && !lastName && <Text style={commonStyle.errorText}>Please fill this field</Text>
                 }
                 {/* Buttons for performing actions */}
-                <View style={{ marginVertical: "10%" }}>
+                <View style={styles.buttonContainer}>
                     <Button title={props?.route?.params?.data ? 'Update User' : 'Add User'} onPress={() => props?.route?.params?.data ? handleUpdateUser() : handleAddUser()} />
                 </View>
             </View>
         </Container>
     )
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    buttonContainer: { marginVertical: "10%" }
+})
 
 /**
  * Binding Redux state to the component props
