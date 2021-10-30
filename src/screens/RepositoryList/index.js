@@ -23,7 +23,7 @@ export default class RepositoryList extends Component {
     handleSeacrhRepositories = () => {
         this.setState({ loading: true })
         RespositoriesService.getRepositories(this.state.searchText, this.state.pageNo)
-            .then((res) => { console.log(res.data.items); this.setState({ data: res.data.items, loading: false, refreshing: false }) })
+            .then((res) => { this.setState({ data: res.data.items, loading: false, refreshing: false }) })
             .catch((error) => console.log(error.response))
     }
     /**
@@ -33,7 +33,6 @@ export default class RepositoryList extends Component {
     getRepositoriesOnReachEnd = () => {
         RespositoriesService.getRepositories(this.state.searchText, this.state.pageNo)
             .then((res) => {
-                console.log(res.data.items);
                 let array = [...this.state.data];
                 array = [...array, ...res.data.items]
                 this.setState({ data: array, loading: false, refreshing: false })
