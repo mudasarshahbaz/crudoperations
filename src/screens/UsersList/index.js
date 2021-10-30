@@ -53,9 +53,11 @@ function UsersList(props) {
     return (
         <Container>
             <View style={{ flex: 1, }}>
+                {/* Button to navigate to add user detail screen */}
                 <View style={{ marginVertical: "10%", alignSelf: "center" }}>
                     <Button title="Add User" onPress={() => props.navigation.navigate(route.ADDUSER)} />
                 </View>
+                 {/* List of users */}
                 <View >
                     <FlatList
                         data={props.users}

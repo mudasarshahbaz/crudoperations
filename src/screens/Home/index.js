@@ -14,6 +14,7 @@ export default class Home extends Component {
         return (
             <Container>
                 <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                    {/* Buttons for Performing navigation to the specific scenerio for users and repositories */}
                     <View>
                         <Button title={'Users'} onPress={() => this.props.navigation.navigate(route.USERLIST)} />
                     </View>
